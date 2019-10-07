@@ -5,6 +5,10 @@
 
 [Google Java Style]: https://google.github.io/styleguide/javaguide.html
 
+## What's different about this fork?
+
+*IMPORTANT: This for contains the additional flag: --max-line-length*
+
 ## Using the formatter
 
 ### from the command-line

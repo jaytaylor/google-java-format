@@ -18,6 +18,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 
 import com.google.common.io.ByteStreams;
 import com.google.googlejavaformat.FormatterDiagnostic;
+import com.google.googlejavaformat.java.Formatter;
 import com.google.googlejavaformat.java.JavaFormatterOptions.Style;
 import java.io.IOError;
 import java.io.IOException;
@@ -94,6 +95,8 @@ public final class Main {
     if (parameters.help()) {
       throw new UsageException();
     }
+
+    Formatter.MAX_LINE_LENGTH = parameters.maxLineLength();
 
     JavaFormatterOptions options =
         JavaFormatterOptions.builder().style(parameters.aosp() ? Style.AOSP : Style.GOOGLE).build();
