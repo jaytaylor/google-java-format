@@ -42,6 +42,7 @@ final class CommandLineOptions {
   private final boolean setExitIfChanged;
   private final Optional<String> assumeFilename;
   private final boolean reflowLongStrings;
+  private final int maxLineLength;
 
   CommandLineOptions(
       ImmutableList<String> files,
@@ -59,7 +60,8 @@ final class CommandLineOptions {
       boolean dryRun,
       boolean setExitIfChanged,
       Optional<String> assumeFilename,
-      boolean reflowLongStrings) {
+      boolean reflowLongStrings,
+      int maxLineLength) {
     this.files = files;
     this.inPlace = inPlace;
     this.lines = lines;
@@ -76,6 +78,7 @@ final class CommandLineOptions {
     this.setExitIfChanged = setExitIfChanged;
     this.assumeFilename = assumeFilename;
     this.reflowLongStrings = reflowLongStrings;
+    this.maxLineLength = maxLineLength;
   }
 
   /** The files to format. */
@@ -106,6 +109,11 @@ final class CommandLineOptions {
   /** Use AOSP style instead of Google Style (4-space indentation). */
   boolean aosp() {
     return aosp;
+  }
+
+  /** Max line length override. */
+  int maxLineLength() {
+      return maxLineLength;
   }
 
   /** Print the version. */
@@ -186,6 +194,7 @@ final class CommandLineOptions {
     private boolean setExitIfChanged = false;
     private Optional<String> assumeFilename = Optional.empty();
     private boolean reflowLongStrings = true;
+    private int maxLineLength = 100;
 
     ImmutableList.Builder<String> filesBuilder() {
       return files;
@@ -213,6 +222,11 @@ final class CommandLineOptions {
     Builder aosp(boolean aosp) {
       this.aosp = aosp;
       return this;
+    }
+
+    Builder maxLineLength(int maxLineLength) {
+        this.maxLineLength = maxLineLength;
+        return this;
     }
 
     Builder version(boolean version) {
@@ -282,7 +296,8 @@ final class CommandLineOptions {
           dryRun,
           setExitIfChanged,
           assumeFilename,
-          reflowLongStrings);
+          reflowLongStrings,
+          maxLineLength);
     }
   }
 }

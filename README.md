@@ -5,15 +5,19 @@
 
 [Google Java Style]: https://google.github.io/styleguide/javaguide.html
 
+## IMPORTANT: What's different about this fork?
+
+This fork adds the flag: `--max-line-length` for configurability.
+
 ## Using the formatter
 
 ### from the command-line
 
-[Download the formatter](https://github.com/google/google-java-format/releases)
+[Download the formatter](https://github.com/jaytaylor/google-java-format/releases)
 and run it with:
 
 ```
-java -jar /path/to/google-java-format-1.7-all-deps.jar <options> [files...]
+java -jar /path/to/google-java-format-1.8.1-all-deps.jar <options> [files...]
 ```
 
 The formatter can act on whole files, on limited lines (`--lines`), on specific
@@ -21,11 +25,7 @@ offsets (`--offset`), passing through to standard-out (default) or altered
 in-place (`--replace`).
 
 To reformat changed lines in a specific patch, use
-[`google-java-format-diff.py`](https://github.com/google/google-java-format/blob/master/scripts/google-java-format-diff.py).
-
-***Note:*** *There is no configurability as to the formatter's algorithm for
-formatting. This is a deliberate design decision to unify our code formatting on
-a single format.*
+[`google-java-format-diff.py`](https://github.com/jaytaylor/google-java-format/blob/master/scripts/google-java-format-diff.py).
 
 ### IntelliJ, Android Studio, and other JetBrains IDEs
 

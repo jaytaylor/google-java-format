@@ -86,6 +86,11 @@ final class CommandLineOptionsParser {
         case "-a":
           optionsBuilder.aosp(true);
           break;
+        case "--max-line-length":
+        case "-max-line-length":
+        case "-m":
+          optionsBuilder.maxLineLength(Integer.parseInt(getValue(flag, it, value)));
+          break;
         case "--version":
         case "-version":
         case "-v":
